@@ -146,6 +146,8 @@ tests/
 docs/
   architecture.md
   fuzzy_logic.md
+assets/
+  style.css
 .streamlit/
   config.toml
 .env.example
@@ -180,4 +182,4 @@ tool suitable for a college-level AI/software engineering project.
 
 ## Author
 
-Rajalingam Muthiah
+Shreya Tiwari
