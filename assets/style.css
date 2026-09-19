@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Hide Streamlit chrome we don't want: main menu, deploy button, footer */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header [data-testid="stToolbar"] {visibility: hidden;}
+div[data-testid="stDecoration"] {display: none;}
+
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    max-width: 880px;
+}
+
+/* Hero header */
+.sa-hero {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #a855f7 100%);
+    border-radius: 20px;
+    padding: 2.2rem 2rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
+    color: #ffffff;
+}
+.sa-hero h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin: 0 0 0.35rem 0;
+    letter-spacing: -0.02em;
+}
+.sa-hero p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.92;
+    font-weight: 500;
+}
+
+/* Section cards */
+.sa-card {
+    background: #ffffff;
+    border: 1px solid #eef0f4;
+    border-radius: 16px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 10px rgba(17, 24, 39, 0.04);
+}
+.sa-card h3 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #111827;
+}
+
+/* Stat grid */
+.sa-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+}
+@media (max-width: 640px) {
+    .sa-stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.sa-stat {
+    background: #f8f9fc;
+    border-radius: 14px;
+    padding: 1rem 0.8rem;
+    text-align: center;
+    border: 1px solid #eef0f4;
+}
+.sa-stat .sa-stat-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+.sa-stat .sa-stat-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* Priority result banner */
+.sa-priority {
+    border-radius: 18px;
+    padding: 1.6rem 1.8rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+}
+.sa-priority .sa-score {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+.sa-priority .sa-level {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.95;
+}
+.sa-priority.low { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.sa-priority.medium { background: linear-gradient(135deg, #eab308, #ca8a04); }
+.sa-priority.high { background: linear-gradient(135deg, #f97316, #ea580c); }
+.sa-priority.critical { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+
+.sa-explanation {
+    background: #f8f9fc;
+    border-left: 4px solid #7c3aed;
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.98rem;
+    color: #1f2937;
+}
+
+.sa-rule-item {
+    background: #f8f9fc;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.88rem;
+    color: #374151;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+}
+
+.sa-membership-line {
+    font-size: 0.88rem;
+    color: #374151;
+    margin-bottom: 0.3rem;
+}
+.sa-membership-line b { color: #111827; }
+
+/* Buttons */
+.stButton > button {
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 0.6rem 1.4rem;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+}
+.stButton > button:hover {
+    background: linear-gradient(135deg, #4338ca, #6d28d9);
+    color: white;
+}
+
+textarea {
+    border-radius: 12px !important;
+}
