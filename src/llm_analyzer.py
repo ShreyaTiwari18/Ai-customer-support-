@@ -6,8 +6,6 @@ engine's job.
 """
 from __future__ import annotations
 
-from langchain_openai import ChatOpenAI
-
 from src.config import config
 from src.models import TicketAnalysis
 from src.prompts import ANALYSIS_PROMPT
@@ -15,6 +13,29 @@ from src.prompts import ANALYSIS_PROMPT
 
 class LLMAnalyzerError(Exception):
     """Raised when the LLM pipeline fails to produce a valid analysis."""
+
+
+def _build_llm():
+    """Instantiate the chat model for whichever provider has a configured key."""
+    if config.provider == "groq":
+        from langchain_groq import ChatGroq
+
+        return ChatGroq(
+            model=config.resolved_model,
+            temperature=config.llm_temperature,
+            api_key=config.groq_api_key,
+        )
+    if config.provider == "openai":
+        from langchain_openai import ChatOpenAI
+
+        return ChatOpenAI(
+            model=config.resolved_model,
+            temperature=config.llm_temperature,
+            api_key=config.openai_api_key,
+        )
+    raise LLMAnalyzerError(
+        "AI service is not configured. Please configure the required API key."
+    )
 
 
 class LLMAnalyzer:
@@ -25,11 +46,7 @@ class LLMAnalyzer:
             raise LLMAnalyzerError(
                 "AI service is not configured. Please configure the required API key."
             )
-        llm = ChatOpenAI(
-            model=config.llm_model,
-            temperature=config.llm_temperature,
-            api_key=config.openai_api_key,
-        )
+        llm = _build_llm()
         self._structured_llm = llm.with_structured_output(TicketAnalysis)
         self._chain = ANALYSIS_PROMPT | self._structured_llm
 
