@@ -16,19 +16,35 @@ div[data-testid="stDecoration"] {display: none;}
     max-width: 880px;
 }
 
+/* Entrance animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.sa-fade {
+    animation: fadeInUp 0.5s ease-out both;
+}
+
 /* Hero header */
 .sa-hero {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #a855f7 100%);
+    background: linear-gradient(120deg, #4f46e5 0%, #7c3aed 45%, #a855f7 75%, #4f46e5 100%);
+    background-size: 300% 300%;
+    animation: fadeInUp 0.5s ease-out both, gradientShift 10s ease infinite;
     border-radius: 20px;
     padding: 2.2rem 2rem;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.4rem;
     box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
     color: #ffffff;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 .sa-hero h1 {
     font-size: 2.1rem;
     font-weight: 800;
-    margin: 0 0 0.35rem 0;
+    margin: 0.5rem 0 0.35rem 0;
     letter-spacing: -0.02em;
 }
 .sa-hero p {
@@ -36,6 +52,46 @@ div[data-testid="stDecoration"] {display: none;}
     margin: 0;
     opacity: 0.92;
     font-weight: 500;
+}
+.sa-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    backdrop-filter: blur(4px);
+}
+
+/* How it works steps */
+.sa-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.6rem;
+}
+@media (max-width: 640px) {
+    .sa-steps { grid-template-columns: 1fr; }
+}
+.sa-step {
+    background: #ffffff;
+    border: 1px solid #eef0f4;
+    border-radius: 14px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(17, 24, 39, 0.03);
+}
+.sa-step-icon { font-size: 1.6rem; margin-bottom: 0.3rem; }
+.sa-step-title { font-weight: 700; font-size: 0.88rem; color: #111827; margin-bottom: 0.2rem; }
+.sa-step-text { font-size: 0.78rem; color: #6b7280; }
+
+.sa-example-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 0.4rem;
 }
 
 /* Section cards */
@@ -110,6 +166,34 @@ div[data-testid="stDecoration"] {display: none;}
 .sa-priority.medium { background: linear-gradient(135deg, #eab308, #ca8a04); }
 .sa-priority.high { background: linear-gradient(135deg, #f97316, #ea580c); }
 .sa-priority.critical { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+
+.sa-priority.sa-pulse {
+    animation: fadeInUp 0.5s ease-out both, criticalPulse 1.8s ease-in-out infinite;
+}
+@keyframes criticalPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55); }
+    50% { box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); }
+}
+
+/* Animated score gauge */
+.sa-gauge-track {
+    margin-top: 1rem;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+}
+.sa-gauge-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: #ffffff;
+    width: 0%;
+    animation: growBar 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes growBar {
+    from { width: 0%; }
+    to { width: var(--target-width); }
+}
 
 .sa-explanation {
     background: #f8f9fc;
