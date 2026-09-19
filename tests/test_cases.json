@@ -1,0 +1,22 @@
+[
+  {"complaint": "What are your delivery timings on weekends?", "expected_priority": "LOW"},
+  {"complaint": "Can you tell me whether you deliver on Sundays?", "expected_priority": "LOW"},
+  {"complaint": "Do you offer gift wrapping for orders?", "expected_priority": "LOW"},
+  {"complaint": "My package was supposed to arrive two days ago and the tracking has not updated.", "expected_priority": "MEDIUM"},
+  {"complaint": "I haven't received a confirmation email for my order placed yesterday.", "expected_priority": "MEDIUM"},
+  {"complaint": "The product I received is slightly different from what was shown online.", "expected_priority": "MEDIUM"},
+  {"complaint": "My order has not arrived for a week and I need it for an event tomorrow.", "expected_priority": "HIGH"},
+  {"complaint": "My payment went through but my order was cancelled without explanation.", "expected_priority": "HIGH"},
+  {"complaint": "I've been trying to log into my account for three days and support hasn't responded.", "expected_priority": "HIGH"},
+  {"complaint": "The item I received is completely broken and I paid a large amount for it.", "expected_priority": "HIGH"},
+  {"complaint": "Rs 10000 was deducted from my account but my order was cancelled. I need an immediate refund.", "expected_priority": "CRITICAL"},
+  {"complaint": "I was charged twice for the same order, a total of Rs 15000, and nobody is responding to my emails.", "expected_priority": "CRITICAL"},
+  {"complaint": "My subscription was renewed without consent and Rs 8000 was charged, this is extremely frustrating and urgent.", "expected_priority": "CRITICAL"},
+  {"complaint": "This is the third time my delivery has failed and I am furious, I demand a refund right now.", "expected_priority": "CRITICAL"},
+  {"complaint": "The app keeps crashing whenever I try to open the settings page.", "expected_priority": "MEDIUM"},
+  {"complaint": "I want to know if I can change my delivery address after placing an order.", "expected_priority": "LOW"},
+  {"complaint": "My refund was promised five days ago and I still have not received the money, this is unacceptable.", "expected_priority": "CRITICAL"},
+  {"complaint": "The product description does not match the item I received, but it still works fine.", "expected_priority": "MEDIUM"},
+  {"complaint": "How do I update my saved payment methods?", "expected_priority": "LOW"},
+  {"complaint": "My account was locked after a failed payment and I urgently need access for a business transaction.", "expected_priority": "HIGH"}
+]
